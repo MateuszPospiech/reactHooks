@@ -11,6 +11,10 @@ function TodoList() {
    }
    
    const handleButtonClick = () => {
+      if (todoList.some((todo) => todo === inputValue)) {
+         alert('Masz już to zadanie na liście');
+         return;
+      }
       setTodoList([...todoList, inputValue]);
       setInputValue("");
    }
