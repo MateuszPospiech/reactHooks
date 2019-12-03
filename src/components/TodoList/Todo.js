@@ -1,9 +1,15 @@
 import React from 'react';
 
 function Todo(props) {
+   const { todo, handleCloseClick } = props;
    return (
       <div>
-         {props.todo}
+         <span>{todo}</span>
+         <button
+            onClick={() => handleCloseClick(todo)}
+         >
+            X
+         </button>
       </div>
    )
 }

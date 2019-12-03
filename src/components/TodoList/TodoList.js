@@ -15,12 +15,18 @@ function TodoList() {
          alert('Masz już to zadanie na liście');
          return;
       }
+      if (inputValue === "") return;
+
       setTodoList([...todoList, inputValue]);
       setInputValue("");
    }
+
+   const handleRemoveTodo = (todoValue) => {
+      setTodoList(todoList.filter(todoList => todoList !== todoValue));
+   }
    return (
      <div>
-         <h1>Moje zadania:</h1><br/>
+         <h1>Moje zadania:</h1>
          <input 
             placeholder="Co chcesz dodać do listy?" 
             value={inputValue} 
@@ -33,6 +39,7 @@ function TodoList() {
          <Todo
             todo={todo}
             key={todo}
+            handleCloseClick={handleRemoveTodo}
          />
        ))}
      </div>
